@@ -2,16 +2,16 @@ package trees;
 
 public class BinaryTree {
 
-    Node root = null;
+    TreeNode root = null;
 
-    public void addNode(Node node) {
-        Node temp = root;
+    public void addTreeNode(TreeNode node) {
+        TreeNode temp = root;
 
         if(root == null) {
             root = node;
             return;
         }
-        Node pre = null;
+        TreeNode pre = null;
         while(temp != null) {
             pre = temp;
             if(temp.data > node.data) {
@@ -32,7 +32,7 @@ public class BinaryTree {
     public void printTree() {
         printTree(root);
     }
-    public static void printTree(Node node) {
+    public static void printTree(TreeNode node) {
 
         if(node == null)
             return ;
