@@ -13,20 +13,16 @@ package linkedlists;
  */
 public class SwapPairs {
     public ListNode swapPairs(ListNode head) {
-        if(head == null)
+        if(head == null || head.next == null)
             return head;
 
-        if(head.next != null) {
-            ListNode temp = swapPairs(head.next.next);
+        ListNode temp = swapPairs(head.next.next);
 
-            ListNode nextNode = head.next;
-            nextNode.next = head;
-            nextNode.next.next = temp;
+        ListNode nextNode = head.next;
+        nextNode.next = head;
+        nextNode.next.next = temp;
 
-            return nextNode;
-        } else {
-            return head;
-        }
+        return nextNode;
     }
 
     public void printList(ListNode head) {
