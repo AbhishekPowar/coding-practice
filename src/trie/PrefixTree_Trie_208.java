@@ -1,4 +1,4 @@
-package com.trees;
+package trie;
 
 /**
  * mplement a trie with insert, search, and startsWith methods.
