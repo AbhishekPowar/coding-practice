@@ -1,4 +1,4 @@
-package com.commons;
+package commons;
 
 import java.util.Arrays;
 

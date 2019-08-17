@@ -1,21 +1,12 @@
-package com.commons;
+package commons;
 
-// Node Class
-class Node {
-	Node left;
-	Node right;
-	int data;
-	
-	Node(int data) {
-		left = right = null;
-		this.data = data;
-	}
-}
+import trees.TreeNode;
+
 public class BinarySearchTree {
 	
 	public static int counter = 0;
 	
-	public static void getInorder(Node node, int[] inorder) {
+	public static void getInorder(TreeNode node, int[] inorder) {
 		if(node!= null) {
 			getInorder(node.left, inorder);
 			inorder[counter] = node.data;
@@ -32,7 +23,7 @@ public class BinarySearchTree {
 		return true;
 	}
 	
-	public static void printInorder(Node node) {
+	public static void printInorder(TreeNode node) {
 		
 		if(node!= null) {
 			printInorder(node.left);
@@ -41,18 +32,18 @@ public class BinarySearchTree {
 		}
 	}
 	public static void main(String[] args) {
-		Node node1 = new Node(1);
-		Node node2 = new Node(2);
-		Node node3 = new Node(3);
-		Node node4 = new Node(4);
-		Node node5 = new Node(5);
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node2 = new TreeNode(2);
+		TreeNode node3 = new TreeNode(3);
+		TreeNode node4 = new TreeNode(4);
+		TreeNode node5 = new TreeNode(5);
 		
 		node2.left = node1;
 		node2.right = node4;
 		node3.left = node2;
 		node3.right = node5;
 		
-		Node root = node3;
+		TreeNode root = node3;
 		
 		
 		int[] inorder = new int[5];

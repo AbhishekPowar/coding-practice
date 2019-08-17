@@ -1,4 +1,4 @@
-package com.commons;
+package commons;
 
 public class MaxSubArrayProduct {
 	public int maxProduct(int[] nums) {
