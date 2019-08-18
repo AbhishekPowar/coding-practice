@@ -32,8 +32,8 @@ public class CheckValidEdits {
 	}
 	public static void main(String[] args) {
 		
-		String a = "palede";
-		String b = "palese";
+		String a = "pale";
+		String b = "ple";
 		
 		System.out.println(isValidEdits(a, b));
 	}
