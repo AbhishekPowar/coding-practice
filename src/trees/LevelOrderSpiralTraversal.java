@@ -52,6 +52,7 @@ public class LevelOrderSpiralTraversal {
         new LevelOrderSpiralTraversal().LOT(root);
 
 
+        System.out.println("abc".compareTo("acb"));
 
     }
 }
