@@ -1,4 +1,4 @@
-package commons;
+package string;
 
 public class LongestCommonSubstring {
 	

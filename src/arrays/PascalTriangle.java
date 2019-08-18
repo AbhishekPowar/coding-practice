@@ -1,4 +1,4 @@
-package com.commons;
+package arrays;
 
 public class PascalTriangle {
 	

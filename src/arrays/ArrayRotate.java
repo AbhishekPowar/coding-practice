@@ -1,4 +1,4 @@
-package commons;
+package arrays;
 
 public class ArrayRotate {
 	
