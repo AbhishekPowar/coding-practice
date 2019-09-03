@@ -1,4 +1,4 @@
-package com.commons;
+package commons;
 
 import java.util.Arrays;
 
@@ -26,9 +26,14 @@ public class CoinChangeProblem {
 	public static void main(String[] args) {
 		int coins[] = {1, 5, 3, 7};
 		
-		Arrays.sort(coins);
-		for(int i: coins) {
-		System.out.print(i+" ");
-		}
+//		Arrays.sort(coins);
+//		for(int i: coins) {
+//		System.out.print(i+" ");
+//		}
+
+		int resullt = minCoins(coins,  11);
+
+		System.out.println(resullt);
+
 	}
 }
