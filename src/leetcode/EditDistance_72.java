@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.HashMap;
+
 /**
  * Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
  *
@@ -18,34 +20,40 @@ package leetcode;
  * rose -> ros (remove 'e')
  */
 public class EditDistance_72 {
-    public int minDistance(String word1, String word2) {
 
-        return helper(word1, word2, 0, 0);
+    private HashMap<String, Integer> cache = new HashMap<>();
+    private String s1;
+    private String s2;
+
+    public int minDistance(String word1, String word2) {
+        s1 = word1;
+        s2 = word2;
+
+        return lev(s1.length(), s2.length());
     }
 
-    private int helper(String w1, String w2, int  i, int j) {
+    private int lev(int i,  int j) {
+        if(i == 0  || j ==0) {
+            cache.put(i+","+j, Math.max(i,j));
+            return Math.max(i,j);
+        }
 
-        if(i == w1.length()) {
-            return w2.length() - j;
-        }
-        if(j==w2.length()) {
-            return w1.length() - i;
-        }
-        if(w1.charAt(i) == w2.charAt(j)) {
-            return helper(w1, w2, i+1, j+1);
-        }
-        //delete a  character
-        int deleteBranch = 1 + helper(w1, w2, i+1, j);
-        int replaceBranch = 1 + helper(w1, w2, i+1, j+1);
-        int addBranch = 1 + helper(w1, w2, i, j+1);
+        if(cache.containsKey(i+","+j))
+            return cache.get(i+","+j);
 
-        return Math.min(deleteBranch, Math.min(replaceBranch, addBranch));
+        if(s1.charAt(i-1) == s2.charAt(j-1)) {
+            cache.put(i+","+j, lev(i-1, j-1));
+            return lev(i-1, j-1);
+        }
+        cache.put(i+","+j,Math.min(1+lev(i-1,j), Math.min(1+lev(i,j-1), 1+lev(i-1,j-1))));
+
+        return cache.get(i+","+j);
 
     }
 
     public static void main(String[] args) {
-        String s1 = "horse";
-        String s2 = "ros";
+        String s1 = "dinitrophenylhydrazine";
+        String s2 = "acetylphenylhydrazine";
 
         System.out.println(new EditDistance_72().minDistance(s1, s2));
     }
