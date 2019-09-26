@@ -21,16 +21,17 @@ public class LongestIncreasingSubSequence {
 			maxSoFar = Math.max(maxSoFar, memo[i]);
 		}
 
+		return maxSoFar;
 //		for(int i=0; i<ar.length; i++)
 //			System.out.print(memo[i]+" ");
 //		return maxSoFar;
 
-		int count = 0;
-		for(int i=0; i<ar.length; i++) {
-			if(memo[i] == maxSoFar)
-				++count;
-		}
-		return count;
+//		int count = 0;
+//		for(int i=0; i<ar.length; i++) {
+//			if(memo[i] == maxSoFar)
+//				++count;
+//		}
+//		return count;
 	}
 	public static void main(String[] args) {
 

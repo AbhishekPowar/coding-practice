@@ -23,5 +23,12 @@ public class KadanesProblem {
 		int ar[] = {2, -1, 4, 3, 2, -5};
 		
 		System.out.println(findMaxSum(ar));
+
+//		StringBuilder b = new StringBuilder();
+//		b.append(1);
+//
+//		int i = Integer.parseInt(String.valueOf(b.charAt(0)));
+//
+//		System.out.println(i);
 	}
 }
