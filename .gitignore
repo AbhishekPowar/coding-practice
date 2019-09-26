@@ -1,6 +1,7 @@
 bin/**
 .settings/**
 .idea/**
+target/**
 .classpath
 .project
 coding-practice.iml
