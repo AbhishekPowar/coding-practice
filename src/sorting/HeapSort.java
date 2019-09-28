@@ -2,57 +2,46 @@ package sorting;
 
 public class HeapSort {
 
-    public int[] heap;
-    private int currSize = 0;
+    public static void sort(int[] ar) {
 
-    HeapSort(int[] ar, int size) {
-        heap = new int[size];
+        for(int i = ar.length/2 -1; i>=0 ;i--) {
+            heapify(ar, ar.length, i);
+        }
 
-        for(int i=0; i<size; i++) {
-            this.add(ar[i]);
+        for(int i=ar.length-1; i>=0; i--) {
+            int max = ar[0];
+            ar[0] = ar[i];
+            ar[i] = max;
+
+            heapify(ar, i, 0);
         }
     }
 
-    public void add(int value) {
-        if(currSize == heap.length)
-            return;
+    private static void heapify(int[] ar, int size, int pos) {
+        int maxIdx = pos;
+        int leftIdx = pos*2  + 1;
+        int rightIdx = pos*2 + 2;
 
-        heap[currSize++] = value;
+        if(leftIdx < size && ar[leftIdx] > ar[maxIdx])
+            maxIdx = leftIdx;
+        if(rightIdx < size && ar[rightIdx] > ar[maxIdx])
+            maxIdx = rightIdx;
 
-        heapify();
-    }
-    public int getMax() {
-        int max = heap[0];
-        heap[0] = heap[currSize-1];
-        currSize -= 1;
+        if(maxIdx != pos) {
+            int tmp = ar[pos];
+            ar[pos] = ar[maxIdx];
+            ar[maxIdx] = tmp;
 
-        heapify();
-
-        return max;
-    }
-    private void heapify() {
-        for(int i= currSize/2-1; i >=0; i--) {
-            if(heap[i*2 + 1] > heap[i]){
-                swap(i*2 + 1, i);
-            }
-            if(heap[i*2 + 2] > heap[i])
-                swap(i*2 + 2, i);
+            heapify(ar, size, maxIdx);
         }
-    }
-    private void swap(int i, int j) {
-        int temp = heap[i];
-        heap[i] = heap[j];
-        heap[j] = temp;
     }
     public static void main(String[] args) {
 
         int[] ar = {2,1,5,3,4};
 
-        HeapSort s = new HeapSort(ar, ar.length);
+        HeapSort.sort(ar);
 
-        int[] h = s.heap;
-
-        for(int i=0; i<h.length; i++)
-            System.out.println(s.getMax());
+        for(int i=0; i<ar.length; i++)
+            System.out.println(ar[i]);
     }
 }

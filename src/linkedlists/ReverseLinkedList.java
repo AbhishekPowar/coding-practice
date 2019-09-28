@@ -1,5 +1,7 @@
 package linkedlists;
 
+import java.util.Arrays;
+
 public class ReverseLinkedList {
 
     public ListNode reverse(ListNode node) {
@@ -34,5 +36,10 @@ public class ReverseLinkedList {
             System.out.println(node.val+"  ");
             node = node.next;
         }
+
+        int[] a = {4,3,2,1};
+        Arrays.sort(a);
+//        System.out.println(a);
+        Arrays.stream(a).forEach(System.out::println);
     }
 }
