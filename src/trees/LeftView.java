@@ -2,10 +2,14 @@ package trees;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LeftView {
 
-    private static int maxLevel = 0;
+    private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    private int maxLevel = 0;
     private static Queue<TreeNode> queue = new LinkedList<>();
 
     public void printLeftView(TreeNode node) {
@@ -18,7 +22,7 @@ public class LeftView {
             return;
 
         if(level > maxLevel) {
-            System.out.println(node.data);
+            logger.log(Level.INFO, "{0} ", node.data);
             maxLevel = level;
         }
 
@@ -36,7 +40,7 @@ public class LeftView {
         while (!queue.isEmpty()) {
             TreeNode curr = queue.peek();
             if(curr != null) {
-                System.out.print(curr.data+" ");
+                logger.log(Level.INFO, "{0} ", curr.data);
                 while(queue.peek() != null) {
                     if(curr.left != null)
                         queue.add(curr.left);
@@ -64,11 +68,11 @@ public class LeftView {
         TreeNode node4 = new TreeNode(4, node8, null);
         TreeNode node3 = new TreeNode(3, node6, node7);
         TreeNode node2 = new TreeNode(2, node4, node5);
-        TreeNode node1 = new TreeNode(1, null, node3);
+        TreeNode node1 = new TreeNode(1, node2, node3);
 
         TreeNode root = node1;
 
-//        new LeftView().printLeftView(root);
+        new LeftView().printLeftView(root);
         new LeftView().printLeftViewLOT(root);
     }
 }
