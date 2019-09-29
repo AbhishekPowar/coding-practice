@@ -47,23 +47,26 @@ public class CoinChangeProblem {
 
 	}
 
-	public static int getMinCoinsRecursive(int[] coins, int sum, int[] memo) {
-		if (sum == 0)
+    public static int getMinCoinsRecursive(int[] coins, int amount, int[] memo) {
+        if (amount < 0)
+            return -1;
+        if (amount == 0)
 			return 0;
 
-		if (sum < 0)
-			return Integer.MAX_VALUE;
+        if (memo[amount] != 0)
+            return memo[amount];
 
-		if (memo[sum] != Integer.MAX_VALUE)
-			return memo[sum];
+        int minCoins = Integer.MAX_VALUE;
 
-		for (int i = 0; i < coins.length; i++) {
-			if (coins[i] <= sum) {
-				memo[sum] = Math.min(memo[sum], getMinCoinsRecursive(coins, sum - coins[i], memo) + 1);
-			}
+        for (int i = 0; i < coins.length; i++) {
+            int change = getMinCoinsRecursive(coins, amount - coins[i], memo);
+
+            if (change >= 0 && change < minCoins)
+                minCoins = change + 1;
 		}
 
-		return memo[sum];
+        memo[amount] = minCoins == Integer.MAX_VALUE ? -1 : minCoins;
+        return memo[amount];
 	}
 
 	public static int getWays(int[] coins, int sum) {
@@ -81,13 +84,14 @@ public class CoinChangeProblem {
 	}
 
 	public static void main(String[] args) {
-		int[] coins = {1, 5, 3, 7};
+        int[] coins = {186, 419, 83, 408};
 
-		int sum = 14;
+//		[186,419,83,408]
+//		6249
+        int sum = 6249;
 
 		int[] memo = new int[sum + 1];
-		Arrays.fill(memo, Integer.MAX_VALUE);
-
+        memo[0] = 0;
 		logger.log(Level.INFO, "Min Coins: {0}", getMinCoinsRecursive(coins, sum, memo));
 
 	}
