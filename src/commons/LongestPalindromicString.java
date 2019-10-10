@@ -4,15 +4,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LongestPalindromicString {
+    private int maxLen, location;
+
 	public String longestPalindrome(String s) {
         
-        if(s.length() <= 0)
-            return "";
-          
-        return getLongestPalindrome(s, new HashMap<String, String>());
-        
+        if(s == null || s.length() < 2)
+            return s;
+
+        for(int i=0; i<s.length()-1; i++) {
+            extendSearch(s, i, i); // for odd length
+            extendSearch(s, i, i+1); // for even length
+        }
+        return s.substring(location, location+maxLen);
     }
-    
+
+    private void extendSearch(String str, int i, int j) {
+	    while (i >=0  && j<=str.length()-1 && str.charAt(i) == str.charAt(j)) {
+	        i--;
+	        j++;
+        }
+
+	    if(j - i  -1 > maxLen) {
+	        maxLen = j - i - 1;
+	        location = i+1;
+        }
+    }
 	public static String getLongestPalindrome(String s, Map<String, String> memo) {
 
 		 if(!memo.containsKey(s)) {
