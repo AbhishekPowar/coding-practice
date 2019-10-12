@@ -30,6 +30,15 @@ public class FindMinRotatedArray {
         return findMin(nums, 0,  nums.length-1);
     }
 
+    /**
+     * Using concept of binary search
+     * Time Complexity: O(log(n))
+     * Space Complexity: O(1)
+     * @param nums
+     * @param start
+     * @param end
+     * @return
+     */
     private int findMin(int[] nums, int start , int end) {
         if(start > end)
             return Integer.MAX_VALUE;
