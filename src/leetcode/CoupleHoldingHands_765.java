@@ -1,10 +1,6 @@
-package leet;
+package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CoupleHoldingHands_765 {
     public int minSwapsCouples(int[] row) {
