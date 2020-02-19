@@ -9,11 +9,13 @@ package bitwise;
  */
 public class FindNearestNumberWithSameWeight {
 
+    private final static int WORD_SIZE = 64;
+
     public static long findNearest(long n) {
 
-      for(long i=0; i<64-1; i++) {
-          if((n>>>i & 1) != ((n>>>(i+1))&1)) {
-              return n^(1<<i | 1 <<(i+1));
+      for(long i=0; i < WORD_SIZE -1; i++) {
+          if(((n >>> i) & 1) != ((n >>> (i+1)) & 1)) {
+              return n ^ ((1L << i) | (1L << (i+1)));
           }
       }
       return n;
