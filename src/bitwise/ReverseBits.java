@@ -2,10 +2,14 @@ package bitwise;
 
 import org.apache.commons.lang3.time.StopWatch;
 
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class ReverseBits {
+
+    private final static int BIT_MASK = 3;
+    private final static int WORD_SIZE = 2;
+
+    private static int[] cache = new int[(int) Math.pow(2, 2)];
 
     private static Logger logger = Logger.getLogger("ReversetBits");
     /**
@@ -18,7 +22,7 @@ public class ReverseBits {
     public static long reverse1(long input) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        long reverse = 0;
+        int reverse = 0;
 
         while(input != 0) {
             reverse <<= 1;
@@ -27,7 +31,7 @@ public class ReverseBits {
                 reverse |= 1;
             input >>>= 1;
         }
-        logger.info("Time Elapsed: "+stopWatch.getTime(TimeUnit.MICROSECONDS)+" micros");
+//        logger.info("Time Elapsed: "+stopWatch.getTime(TimeUnit.MICROSECONDS)+" micros");
         return reverse;
     }
 
@@ -51,15 +55,36 @@ public class ReverseBits {
             i++;
         }
         stopWatch.stop();
-        logger.info("Time Elapsed: "+stopWatch.getTime(TimeUnit.MICROSECONDS)+" micros");
+//        logger.info("Time Elapsed: "+stopWatch.getTime(TimeUnit.MICROSECONDS)+" micros");
         return input;
+    }
+
+    public static long reverse3(long input) {
+        initializeCache();
+
+        return cache[(int) input & BIT_MASK] << (3*WORD_SIZE)
+                | cache[(int) ((input >>> WORD_SIZE) & BIT_MASK)] << (2*WORD_SIZE)
+                | cache[(int) ((input >>> (2*WORD_SIZE)) & BIT_MASK)] << (WORD_SIZE)
+                | cache[(int) ((input >>> (3*WORD_SIZE)) & BIT_MASK)] ;
+    }
+
+    private static void initializeCache() {
+        for(int i=0; i<Math.pow(2, 2); i++) {
+            cache[i] = (int)reverse2(i);
+        }
+
+        for (int i=0; i<cache.length; i++) {
+            System.out.println((cache[i]));
+        }
     }
 
     public static void main(String[] args) {
 
-        long input = 1110417148;
+        long input = 105;
         System.out.println(Long.toBinaryString(input));
         System.out.println(Long.toBinaryString(reverse1(input)));
         System.out.println(Long.toBinaryString(reverse2(input)));
+        System.out.println(Long.toBinaryString(reverse3(input)));
+        System.out.println("BitMask: "+Long.toBinaryString(BIT_MASK));
     }
 }
