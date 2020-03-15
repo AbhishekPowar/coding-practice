@@ -67,6 +67,7 @@ public class NumberOfONBits {
     public static boolean testPowerOfTwo(int x) {
         return (x & (x-1)) == 0;
     }
+
     public static void main(String[] args) {
         int x = 80;
 
