@@ -1,6 +1,5 @@
-package com.commons;
+package commons;
 
-import java.util.LinkedList;
 import java.util.Stack;
 
 class ListNode {
