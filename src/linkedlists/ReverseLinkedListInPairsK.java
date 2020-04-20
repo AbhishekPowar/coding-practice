@@ -2,26 +2,30 @@ package linkedlists;
 
 public class ReverseLinkedListInPairsK {
 
-    public ListNode reverse(ListNode head, int k) {
+
+    public ListNode reverKGroup(ListNode head, int k) {
+
         ListNode curr = head;
-        ListNode prev = null;
-        ListNode next = null;
-
-        int count = 0;
-
-        while(count < k && curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-            count++;
+        int i = 0;
+        while(curr != null && i < k) {
+            curr = curr.next;
+            i++;
         }
 
-        if(next != null)
-            head.next = reverse(next, k);
+        if(i == k) {
+            curr = reverKGroup(curr, k);
+            while(i-- > 0) {
+                ListNode tmp = head.next;
+                head.next = curr;
+                curr = head;
+                head = tmp;
+            }
+            head = curr;
+        }
 
-        return prev;
+        return head;
     }
+
     public static void main(String[] args) {
 
         ListNode n1 = new ListNode(1);
@@ -35,13 +39,12 @@ public class ReverseLinkedListInPairsK {
         n3.next = n4;
         n4.next = n5;
 
-        ListNode reversed = new ReverseLinkedListInPairsK().reverse(n1, 2);
-
-        ListNode node = reversed;
+        ListNode node = new ReverseLinkedListInPairsK().reverKGroup(n1, 3);
 
         while(node!= null) {
-            System.out.println(node.val+"  ");
+            System.out.print(node.val+"  ");
             node = node.next;
         }
+
     }
 }

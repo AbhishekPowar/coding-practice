@@ -11,7 +11,9 @@ package linkedlists;
  *
  * Given 1->2->3->4, you should return the list as 2->1->4->3.
  */
-public class SwapPairs {
+public class
+
+SwapPairs {
     public ListNode swapPairs(ListNode head) {
         if(head == null || head.next == null)
             return head;
@@ -34,17 +36,15 @@ public class SwapPairs {
         }
     }
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);;
+        ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
 
         node1.next = node2;
         node2.next = node3;
 
-        ListNode head = node1;
-
         SwapPairs swapPairs = new SwapPairs();
-        ListNode swappedList = swapPairs.swapPairs(head);
+        ListNode swappedList = swapPairs.swapPairs(node1);
         swapPairs.printList(swappedList);
     }
 }
