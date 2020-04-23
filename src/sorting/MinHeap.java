@@ -10,14 +10,11 @@ public class MinHeap {
         heap = new int[size];
     }
 
-    public void insert(int elem) {
+    public void addElement(int elem) {
         if(currSize == maxSize)
             System.out.println("Overflow");
 
         heap[currSize++] = elem;
-
-//        System.out.println("Curr: "+currSize);
-
         int curr = currSize -1;
 
         while(parent(curr) >=0 && heap[curr] < heap[parent(curr)]) {
@@ -77,10 +74,10 @@ public class MinHeap {
 
     public static void main(String[] args) {
         MinHeap minHeap = new MinHeap(4);
-        minHeap.insert(1);
-        minHeap.insert(2);
-        minHeap.insert(3);
-        minHeap.insert(4);
+        minHeap.addElement(1);
+        minHeap.addElement(2);
+        minHeap.addElement(3);
+        minHeap.addElement(4);
 
 //        System.out.println(minHeap.poll());
         System.out.println(minHeap.getMin());
