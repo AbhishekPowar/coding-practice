@@ -1,12 +1,17 @@
 # Coding Questions
 
 **Some Important Links**
-[Running/live online challenges](https://clist.by)
+ - [Running/live online challenges](https://clist.by)
+ - [Leetcode](https://leetcode.com)
 
-## Problems#Trees
+## Problems: Trees
  - [Lowest Common Ancestor](https://github.com/ashif14/coding-practice/blob/master/src/trees/LowerCommonAncestor.java)
  - [Level Order Spiral/Zig-Zag Traversal](https://github.com/ashif14/coding-practice/blob/master/src/trees/LevelOrderSpiral.java)
 
-## Problems#Arrays
+## Problems: Arrays
 
-## Problems#String
+## Problems: Strings
+
+## Problems: Dynamic Programming
+
+## Problems: Bitwise Manipulation
