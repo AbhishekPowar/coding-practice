@@ -26,7 +26,7 @@ public class ReverseLevelOrderTraversal {
         }
 
         while (!stack.isEmpty()) {
-            System.out.print(stack.peek().data+" ");
+            System.out.print(stack.peek().val +" ");
             stack.pop();
         }
     }

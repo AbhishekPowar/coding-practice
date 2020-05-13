@@ -10,9 +10,9 @@ public class LowerCommonAncestor {
         if(TreeNode == null)
             return null;
 
-        if(TreeNode.data == n1.data)
+        if(TreeNode.val == n1.val)
             return TreeNode;
-        if(TreeNode.data == n2.data)
+        if(TreeNode.val == n2.val)
             return TreeNode;
 
         TreeNode leftSubTreeResult = LCA(TreeNode.left, n1, n2);
@@ -41,6 +41,6 @@ public class LowerCommonAncestor {
         TreeNode root = TreeNode1;
 
         TreeNode lca = new LowerCommonAncestor().LCA(root, TreeNode4, TreeNode5);
-        System.out.println(lca == null? "Not Found":lca.data);
+        System.out.println(lca == null? "Not Found":lca.val);
     }
 }

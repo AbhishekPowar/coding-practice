@@ -11,7 +11,7 @@ public class PrintLeafNodes {
             return;
 
         if (root.left == null && root.right == null) {
-            logger.log(Level.INFO, "{0}", root.data);
+            logger.log(Level.INFO, "{0}", root.val);
         }
 
         if (root.left != null)

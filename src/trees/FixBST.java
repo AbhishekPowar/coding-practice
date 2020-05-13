@@ -12,7 +12,7 @@ public class FixBST {
         if(root != null) {
             helper(root.left);
 
-            if(prev != null && prev.data > root.data) {
+            if(prev != null && prev.val > root.val) {
                 swap(prev, root);
             }
             prev = root;
@@ -21,9 +21,9 @@ public class FixBST {
         }
     }
     public void swap(TreeNode node1, TreeNode node2) {
-        int v = node1.data;
-        node1.data = node2.data;
-        node2.data = v;
+        int v = node1.val;
+        node1.val = node2.val;
+        node2.val = v;
     }
 
     public static void printInorder(TreeNode root) {
@@ -31,7 +31,7 @@ public class FixBST {
             return;
 
         printInorder(root.left);
-        System.out.print(root.data+" ");
+        System.out.print(root.val +" ");
         printInorder(root.right);
 
     }

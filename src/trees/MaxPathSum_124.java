@@ -10,19 +10,19 @@ public class MaxPathSum_124 {
             return -9999;
 
         if(root.left == null && root.right == null)
-            return root.data;
+            return root.val;
 
         int left = maxSum(root.left);
         int right = maxSum(root.right);
 
-        int total = left + right + root.data;
+        int total = left + right + root.val;
         int maxChild = Math.max(left, right);
 
-        int max = Math.max(root.data, Math.max(total, Math.max(maxChild, maxChild+root.data)));
+        int max = Math.max(root.val, Math.max(total, Math.max(maxChild, maxChild+root.val)));
 
         maxAll = Math.max(max, maxAll);
 
-        return Math.max(Math.max(left+ root.data, right + root.data), root.data);
+        return Math.max(Math.max(left+ root.val, right + root.val), root.val);
 
     }
     public int maxPathSum(TreeNode root) {

@@ -15,45 +15,45 @@ public class PathSumII_113 {
     private boolean pathSumExists(TreeNode node, int sum) {
         if(node == null)
             return false;
-        if(node.left == null && node.right == null && node.data == sum)
+        if(node.left == null && node.right == null && node.val == sum)
             return true;
 
         List<Integer> list = new ArrayList<>();
-        list.add(node.data);
+        list.add(node.val);
 
-        if(pathSumExists(node.left, sum - node.data)) {
-            list.add(node.left.data);
+        if(pathSumExists(node.left, sum - node.val)) {
+            list.add(node.left.val);
         }
 
-        if(pathSumExists(node.right, sum - node.data)) {
-            list.add(node.right.data);
+        if(pathSumExists(node.right, sum - node.val)) {
+            list.add(node.right.val);
         }
-        return pathSumExists(node.left, sum - node.data) || pathSumExists(node.right, sum - node.data);
+        return pathSumExists(node.left, sum - node.val) || pathSumExists(node.right, sum - node.val);
     }
 
     private void getPaths(TreeNode node, int sum, List<Integer> path) {
         if(node == null)
             return;
 
-        path.add(node.data);
+        path.add(node.val);
 
-        if(node.left == null && node.right == null && node.data == sum) {
+        if(node.left == null && node.right == null && node.val == sum) {
             paths.add(new ArrayList<>(path));
             path.remove(path.size() -1 );
             return;
         }
 
-        getPaths(node.left, sum - node.data, path);
-        getPaths(node.right, sum - node.data, path);
+        getPaths(node.left, sum - node.val, path);
+        getPaths(node.right, sum - node.val, path);
         path.remove(path.size() - 1);
     }
     private int pathCount(TreeNode node, int sum) {
         if(node == null)
             return 0;
-        if(node.left == null && node.right == null && node.data == sum)
+        if(node.left == null && node.right == null && node.val == sum)
             return 1;
 
-        return pathCount(node.left, sum - node.data) + pathCount(node.right, sum - node.data);
+        return pathCount(node.left, sum - node.val) + pathCount(node.right, sum - node.val);
     }
     public static void main(String[] args) {
 

@@ -15,7 +15,7 @@ public class LevelOrderSpiralTraversal {
             while(!s1.isEmpty()) {
                 TreeNode n = s1.pop();
 
-                System.out.print(n.data+" ");
+                System.out.print(n.val +" ");
 
                 if(n.right != null)
                     s2.push(n.right);
@@ -26,7 +26,7 @@ public class LevelOrderSpiralTraversal {
             while(!s2.isEmpty()) {
                 TreeNode n = s2.pop();
 
-                System.out.print(n.data+" ");
+                System.out.print(n.val +" ");
 
                 if(n.left != null)
                     s1.push(n.left);

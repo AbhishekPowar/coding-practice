@@ -14,14 +14,14 @@ public class BinaryTree {
         TreeNode pre = null;
         while(temp != null) {
             pre = temp;
-            if(temp.data > node.data) {
+            if(temp.val > node.val) {
                 temp = temp.left;
             } else {
                 temp = temp.right;
             }
         }
 
-        if(pre.data < node.data) {
+        if(pre.val < node.val) {
             pre.right = node;
         } else {
             pre.left = node;
@@ -37,7 +37,7 @@ public class BinaryTree {
         if(node == null)
             return ;
         printTree(node.left);
-        System.out.print(node.data+" ");
+        System.out.print(node.val +" ");
         printTree(node.right);
     }
 }

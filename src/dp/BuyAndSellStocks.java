@@ -55,9 +55,34 @@ public class BuyAndSellStocks {
         }
         return max_profit;
     }
+
+    public int maxProfit_III(int[] prices) {
+        if(prices.length <= 1)
+            return 0;
+
+        int[] profit= new int[prices.length];
+        int min_far = prices[0];
+        for(int i=1; i<prices.length; i++) {
+            profit[i] = Math.max(profit[i], prices[i]-min_far);
+            min_far = Math.min(min_far, prices[i]);
+        }
+
+        int max_far = prices[prices.length-1];
+        int max_profit_right = 0;
+        int max = 0;
+        for(int i=prices.length-1; i>0; i--) {
+            max_profit_right = Math.max(max_profit_right, max_far-prices[i]);
+            profit[i] = Math.max(profit[i] + max_profit_right, profit[i-1]+ max_profit_right);
+            max_far = Math.max(max_far, prices[i]);
+            max = Math.max(max, profit[i]);
+        }
+        return max;
+    }
     public static void main(String[] args) {
+        "".compareTo("abc");
         System.out.println(new BuyAndSellStocks().maxProfit(new int[]{2,5,7,1,4,3,1,3}));
         System.out.println(new BuyAndSellStocks().maxProfit_I(new int[]{310, 315, 275, 295,260, 270, 290, 230, 255, 250}));
         System.out.println(new BuyAndSellStocks().maxProfit_II(new int[]{12,11,13, 9, 12,8, 14, 13, 15}));
+        System.out.println(new BuyAndSellStocks().maxProfit_III(new int[]{3,2,6,5,0,3}));
     }
 }

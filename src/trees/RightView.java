@@ -14,7 +14,7 @@ public class RightView {
             return;
 
         if(level > maxLevel) {
-            System.out.print(node.data+" ");
+            System.out.print(node.val +" ");
             maxLevel = level;
         }
 

@@ -13,7 +13,7 @@ public class SerializeDeserializeBinaryTree {
         String leftSerialized = serialize(root.left);
         String rightSerialized = serialize(root.right);
 
-        return root.data + "," + leftSerialized + "," + rightSerialized;
+        return root.val + "," + leftSerialized + "," + rightSerialized;
     }
 
     // Decodes your encoded data to tree.

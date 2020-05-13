@@ -14,7 +14,7 @@ public class LevelOrderTraversal {
         while(!queue.isEmpty()) {
             TreeNode curr = queue.remove();
 
-            System.out.print(curr.data+" ");
+            System.out.print(curr.val +" ");
 
             if(curr.left != null)
                 queue.add(curr.left);
@@ -33,7 +33,7 @@ public class LevelOrderTraversal {
     private void printLOTRecursive(Queue<TreeNode> queue) {
         if(!queue.isEmpty()) {
             TreeNode node = queue.remove();
-            System.out.print(node.data+" ");
+            System.out.print(node.val +" ");
 
             if(node.left != null)
                 queue.add(node.left);

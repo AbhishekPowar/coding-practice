@@ -22,7 +22,7 @@ public class LeftView {
             return;
 
         if(level > maxLevel) {
-            logger.log(Level.INFO, "{0} ", node.data);
+            logger.log(Level.INFO, "{0} ", node.val);
             maxLevel = level;
         }
 
@@ -40,7 +40,7 @@ public class LeftView {
         while (!queue.isEmpty()) {
             TreeNode curr = queue.peek();
             if(curr != null) {
-                logger.log(Level.INFO, "{0} ", curr.data);
+                logger.log(Level.INFO, "{0} ", curr.val);
                 while(queue.peek() != null) {
                     if(curr.left != null)
                         queue.add(curr.left);

@@ -9,7 +9,7 @@ public class BinarySearchTree {
 	public static void getInorder(TreeNode node, int[] inorder) {
 		if(node!= null) {
 			getInorder(node.left, inorder);
-			inorder[counter] = node.data;
+			inorder[counter] = node.val;
 			counter++;
 			getInorder(node.right, inorder);
 		}
@@ -27,7 +27,7 @@ public class BinarySearchTree {
 		
 		if(node!= null) {
 			printInorder(node.left);
-			System.out.print(node.data+" ");
+			System.out.print(node.val +" ");
 			printInorder(node.right);
 		}
 	}
