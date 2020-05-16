@@ -1,23 +1,25 @@
 package arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PascalTriangle {
 	
-	public static void printTriangle(int k) {
+	public static List<List<Integer>> printTriangle(int numRows) {
 		
-		int[][] coefficient = new int[k+1][k+1];
-		
-		for(int i=0; i<k; i++) {
+		List<List<Integer>> coefficient = new ArrayList<>();
+		for(int i=0; i<numRows; i++) {
+			coefficient.add(new ArrayList<>());
 			for(int j=0; j<=i; j++) {
 				if(j==0 || j==i) {
 					System.out.print(1+" ");
-					coefficient[i][j] = 1;
+					coefficient.get(i).add(j,1);
 				} else {
-					coefficient[i][j] = coefficient[i-1][j-1] + coefficient[i-1][j];
-					System.out.print(coefficient[i][j]+" ");
+					coefficient.get(i).add(j, coefficient.get(i-1).get(j-1)+coefficient.get(i-1).get(j));
 				}
 			}
-			System.out.println();
 		}
+		return coefficient;
 	}
 	public static void main(String[] args) {
 		

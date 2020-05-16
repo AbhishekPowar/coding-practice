@@ -21,11 +21,13 @@ public class FindNearestNumberWithSameWeight {
       return n;
     }
 
+    
     public static void main(String[] args) {
 
         long n = 15;
         long nearest = findNearest(n);
         System.out.println(Long.toBinaryString(n));
+        System.out.println(Long.toBinaryString(4&1));
         System.out.println(Long.toBinaryString(nearest));
     }
 }
