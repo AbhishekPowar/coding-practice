@@ -5,8 +5,8 @@ package linkedlists;
  *
  * You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
  *
+ * <code>
  * Example 1:
- *
  * Input: 1->2->3->4->5->NULL
  * Output: 1->3->5->2->4->NULL
  * Example 2:
@@ -17,6 +17,7 @@ package linkedlists;
  *
  * The relative order inside both the even and odd groups should remain as it was in the input.
  * The first node is considered odd, the second node even and so on ...
+ * </code>
  */
 public class OddEvenLinkedList {
 

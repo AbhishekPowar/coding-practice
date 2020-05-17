@@ -47,3 +47,7 @@
 - Find complement of number
 - Count number of set bits
 - Reverse bits of number
+
+## Math Concepts
+- [Birthday Paradox](https://www.geeksforgeeks.org/birthday-paradox/)
+- 
