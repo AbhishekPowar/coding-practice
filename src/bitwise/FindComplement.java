@@ -22,7 +22,7 @@ public class FindComplement {
 //            ans |= ~(num & ~(num-1));
 //            num = num | (num-1);
 //        }
-//        return ans;
+//        return ans
         return -1;
     }
 
