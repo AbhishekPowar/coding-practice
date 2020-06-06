@@ -77,6 +77,22 @@ public class DetectYShape {
         return null;
     }
 
+    /**
+     * Two pointer approach
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode detectYApproach3(ListNode headA, ListNode headB) {
+        ListNode a = headA, b = headB;
+
+        while(a != b) {
+            a = (a==null) ? headB:a.next;
+            b = (b==null) ? headA:b.next;
+        }
+        return a;
+    }
+
     private int length(ListNode node) {
         int count = 0;
 
