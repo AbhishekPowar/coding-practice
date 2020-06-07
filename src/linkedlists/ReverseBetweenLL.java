@@ -2,17 +2,21 @@ package linkedlists;
 
 public class ReverseBetweenLL {
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        ListNode l = new ListNode(-1), curr;
-        curr = l.next = head;
 
-        int start = 1;
+        ListNode l = new ListNode(-1), curr;
+        curr = l;
+        l.next = head;
+
+        int start = 0, endIdx = m-2;;
+
         while(start < m-1) {
             curr = curr.next;
             start++;
         }
+
         ListNode startNode = curr, end = curr.next, prev = null, next;
         curr = curr.next;
-        int endIdx = start-1;
+
         while(endIdx < n-1) {
             next = curr.next;
             curr.next = prev;
