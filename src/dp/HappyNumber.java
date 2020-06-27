@@ -9,6 +9,11 @@ public class HappyNumber {
     private static Set<Integer> cycleMembers =
             new HashSet<>(Arrays.asList(4, 16, 37, 58, 89, 145, 42, 20));
 
+    /**
+     * Based on Floyd's Cycle Algorithm
+     * @param n
+     * @return
+     */
     public boolean isHappy_1(int n) {
         int slow = n;
         int fast = getNext(n);
