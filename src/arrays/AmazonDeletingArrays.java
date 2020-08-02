@@ -38,5 +38,7 @@ public class AmazonDeletingArrays {
 
         for(int s: solution)
             System.out.print(s+" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.toString().trim();
     }
 }
