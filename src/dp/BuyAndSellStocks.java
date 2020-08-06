@@ -42,11 +42,12 @@ public class BuyAndSellStocks {
      */
     public int maxProfit_II(int[] prices) {
         int[] mProfit = new int[prices.length];
-        int msf = prices[0];
-        for(int i=1; i<prices.length; i++) {
-            mProfit[i] = Math.max(mProfit[i], prices[i]-msf);
+        int msf = Integer.MAX_VALUE;
+        for(int i=0; i<prices.length; i++) {
             msf = Math.min(msf, prices[i]);
+            mProfit[i] = Math.max(mProfit[i], prices[i]-msf);
         }
+
         msf = Integer.MIN_VALUE;
         int max_profit = Integer.MIN_VALUE;
         for(int i=prices.length-1; i>0; i--) {

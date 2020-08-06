@@ -1,6 +1,8 @@
 package arrays;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class LongestIncreasingSubSequence {
 
@@ -22,16 +24,6 @@ public class LongestIncreasingSubSequence {
 		}
 
 		return maxSoFar;
-//		for(int i=0; i<ar.length; i++)
-//			System.out.print(memo[i]+" ");
-//		return maxSoFar;
-
-//		int count = 0;
-//		for(int i=0; i<ar.length; i++) {
-//			if(memo[i] == maxSoFar)
-//				++count;
-//		}
-//		return count;
 	}
 	public static void main(String[] args) {
 
@@ -41,5 +33,9 @@ public class LongestIncreasingSubSequence {
 
 //		new LongestIncreasingSubSequence().getLIS(sequence);
 		System.out.println(new LongestIncreasingSubSequence().getLIS(sequence));
+
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.toString().toLowerCase();
+		Deque<Integer> deque = new ArrayDeque<>();
 	}
 }

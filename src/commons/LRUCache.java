@@ -12,8 +12,8 @@ public class LRUCache {
 	private static int cacheSize;
 	
 	LRUCache(int n) {
-		dq = new LinkedList<Integer>();
-		keys = new HashSet<Integer>();
+		dq = new LinkedList<>();
+		keys = new HashSet<>();
 		
 		cacheSize = n;
 	}
@@ -41,12 +41,9 @@ public class LRUCache {
 		keys.add(pageNumber);
 	}
 	
-	public void display() 
-    { 
-        Iterator<Integer> itr = dq.iterator(); 
-        while (itr.hasNext()) { 
-            System.out.print(itr.next() + " "); 
-        } 
+	public void display() {
+		for (Integer integer : dq)
+			System.out.print(integer + " ");
     } 
 	
 	public static void main(String[] args) {
