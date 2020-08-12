@@ -8,7 +8,7 @@ public class LinkedList {
 
     }
     public LinkedList(int[] ar) {
-        ListNode head = new ListNode(ar[0]);
+        head = new ListNode(ar[0]);
         ListNode curr = head;
         for(int i=1; i<ar.length;i++) {
             curr.next = new ListNode(ar[i]);
