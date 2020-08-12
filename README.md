@@ -29,6 +29,8 @@
 - Longest common substring
 - Permutation of a string
 - Longest palindromic string
+- Rolling Hash Concept
+- Rabin Karp Algorithm
 
 ## Problems: Linked Lists
 - Reverse a linked list
