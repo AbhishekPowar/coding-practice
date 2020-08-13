@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class ReverseLinkedList {
 
     public ListNode reverse(ListNode node) {
-        ListNode prev = null, curr = node, next;
+        ListNode curr = node, prev = null;
 
         while(curr != null) {
-            next = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
@@ -27,14 +27,6 @@ public class ReverseLinkedList {
         n3.next = n4;
 
         ListNode reversed = new ReverseLinkedList().reverse(n1);
-        ListNode node = reversed;
-        while(node!= null) {
-            System.out.println(node.val+"  ");
-            node = node.next;
-        }
-
-        int[] a = {4,3,2,1};
-        Arrays.sort(a);
-        Arrays.stream(a).forEach(System.out::println);
+        LinkedList.print(reversed);
     }
 }
