@@ -28,3 +28,8 @@
 - Tavas and SaDDas Codeforces: https://codeforces.com/problemset/pro...
 - Summing Sums SPOJ: https://www.spoj.com/problems/SUMSUMS/
 - Marbles SPOJ: https://www.spoj.com/problems/MARBLES/
+
+### Theorems
+- [Euclidian Algorithm](https://www.hackerrank.com/challenges/functional-programming-warmups-in-recursion---gcd/problem)
+- Extended Euclidian Algorithm
+- [Sieve of Eratosthenes](https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html) : For finding prime numbers
