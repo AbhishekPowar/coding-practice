@@ -15,9 +15,9 @@ public class PartitionLL {
      * @param x
      * @return
      */
-    public ListNode approach2(ListNode head, int x) {
-        ListNode smallerHead = new ListNode(0), largerHead = new ListNode(0);
-        ListNode smaller = smallerHead, larger = largerHead;
+    public ListNode<Integer> approach2(ListNode<Integer> head, int x) {
+        ListNode<Integer> smallerHead = new ListNode<>(0), largerHead = new ListNode<>(0);
+        ListNode<Integer> smaller = smallerHead, larger = largerHead;
 
         while(head != null) {
             if(head.val < x)
@@ -31,8 +31,8 @@ public class PartitionLL {
         larger.next = null;
         return smallerHead.next;
     }
-    public ListNode partition(ListNode head, int partition) {
-        ListNode curr = head, l1 = null, l2 = null, left = null, right = null;
+    public ListNode<Integer> partition(ListNode<Integer> head, int partition) {
+        ListNode<Integer> curr = head, l1 = null, l2 = null, left = null, right = null;
 
         while (curr != null) {
             if(curr.val < partition) {
@@ -62,7 +62,7 @@ public class PartitionLL {
     }
 
     public static void main(String[] args) {
-        LinkedList.print(new PartitionLL().partition(LinkedList.create(new int[]{3,5,8,5,10,2,1}), 5));
-        LinkedList.print(new PartitionLL().partition(LinkedList.create(new int[]{5,8,5,10}), 5));
+        LinkedList.print(new PartitionLL().partition(LinkedList.create(new Integer[]{3,5,8,5,10,2,1}), 5));
+        LinkedList.print(new PartitionLL().partition(LinkedList.create(new Integer[]{5,8,5,10}), 5));
     }
 }

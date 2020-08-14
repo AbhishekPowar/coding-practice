@@ -1,15 +1,15 @@
 package linkedlists;
 
-public class LinkedList {
-    private ListNode head;
+public class LinkedList<T extends Comparable<T>> {
+    private ListNode<T> head;
     private int length;
 
     public LinkedList() {
 
     }
-    public LinkedList(int[] ar) {
+    public LinkedList(Integer[] ar) {
         head = new ListNode(ar[0]);
-        ListNode curr = head;
+        ListNode<T> curr = head;
         for(int i=1; i<ar.length;i++) {
             curr.next = new ListNode(ar[i]);
             curr = curr.next;
@@ -17,24 +17,24 @@ public class LinkedList {
         }
     }
 
-    public ListNode getHead() {
+    public ListNode<T> getHead() {
         return this.head;
     }
 
-    public static ListNode create(int[] ar) {
+    public static <T extends Comparable<T>> ListNode<T> create(T[] ar) {
         if(ar.length == 0)
             return null;
-        ListNode head = new ListNode(ar[0]);
-        ListNode curr = head;
+        ListNode<T> head = new ListNode<>(ar[0]);
+        ListNode<T> curr = head;
 
         for(int i=1; i<ar.length;i++) {
-            curr.next = new ListNode(ar[i]);
+            curr.next = new ListNode<>(ar[i]);
             curr = curr.next;
         }
         return head;
     }
 
-    public static void print(ListNode head) {
+    public static <T extends Comparable<T>> void print(ListNode<T> head) {
         while(head != null) {
             System.out.print(head.val+" ");
             head = head.next;
@@ -46,7 +46,7 @@ public class LinkedList {
         return this.length;
     }
 
-    public static int length(ListNode node) {
+    public static <T extends Comparable<T>> int length(ListNode<T> node) {
         int len = 0;
         while(node != null) {
             node = node.next;

@@ -69,7 +69,7 @@ public class ReverseBetweenLL {
     }
 
     public static void main(String[] args) {
-        LinkedList.print(new ReverseBetweenLL().reverseBetween(LinkedList.create(new int[]{1,2,3,4,5}), 2,4));
-        LinkedList.print(reverseSublist(LinkedList.create(new int[]{1,2,3,4,5}), 1,2));
+        LinkedList.print(new ReverseBetweenLL().reverseBetween(LinkedList.create(new Integer[]{1,2,3,4,5}), 2,4));
+        LinkedList.print(reverseSublist(LinkedList.create(new Integer[]{1,2,3,4,5}), 1,2));
     }
 }

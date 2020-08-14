@@ -41,25 +41,25 @@ public class DetectYShape {
     /**
      * Time Complexity: O(n)
      * Space Complexity: O(1)
-     * @param node1
-     * @param node2
-     * @return
+     * @param head1 Head of first list
+     * @param head2 Head of second list
+     * @return Node where both list converge
      */
-    public ListNode detectYApproach2(ListNode node1, ListNode node2) {
-        int len1 = length(node1);
-        int len2 = length(node2);
+    public <T extends Comparable<T>> ListNode<T> detectYApproach2(ListNode<T> head1, ListNode<T> head2) {
+        int len1 = length(head1);
+        int len2 = length(head2);
 
         int diff = (len1 > len2) ? len1-len2 : len2-len1;
 
-        ListNode curr1, curr2;
+        ListNode<T> curr1, curr2;
         // List 1 has more elements
         if(len1 > len2) {
-            curr1 = node1;
-            curr2 = node2;
+            curr1 = head1;
+            curr2 = head2;
         }
         else {  // List 2 has more elements
-            curr1 = node2;
-            curr2 = node1;
+            curr1 = head2;
+            curr2 = head1;
         }
 
         int i = 0;
@@ -104,19 +104,33 @@ public class DetectYShape {
         }
         return  count;
     }
+
+    public static <T extends Comparable<T>> ListNode<T> overLappingListsWithCycle(ListNode<T> l1, ListNode<T> l2) {
+        ListNode<T> headA = DetectCycle.hasCycle(l1);
+        ListNode<T> headB = DetectCycle.hasCycle(l2);
+
+        if(headA == null && headB == null) {
+            // detect with no cycles
+        } else if((headA != null && headB == null) || (headA == null && headB != null))
+            return null;
+        else {
+
+        }
+        return null;
+    }
     public static void main(String[] args) {
-        ListNode n1 = new ListNode(1);
-        ListNode n2 = new ListNode(2);
-        ListNode n3 = new ListNode(3);
-        ListNode n4  = new ListNode(4);
-        ListNode n5 = new ListNode(5);
+        ListNode<Integer> n1 = new ListNode<>(1);
+        ListNode<Integer> n2 = new ListNode<>(2);
+        ListNode<Integer> n3 = new ListNode<>(3);
+        ListNode<Integer> n4 = new ListNode<>(4);
+        ListNode<Integer> n5 = new ListNode<>(5);
 
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
         n5.next = n2;
 
-       ListNode node = new DetectYShape().detectYApproach2(n1, n5);
+       ListNode<Integer> node = new DetectYShape().detectYApproach2(n1, n5);
         System.out.println(node == null ? node: node.val);
     }
 }

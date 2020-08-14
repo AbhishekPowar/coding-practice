@@ -10,7 +10,7 @@ public class KthFromLast {
      * @param K
      * @return
      */
-    public ListNode findKthApproach2(ListNode head, int K) {
+    public <T extends Comparable<T>> ListNode<T> findKthApproach2(ListNode<T> head, int K) {
         ListNode p1 = head, p2 = head;
 
         for(int i=0; i<K; i++) {
@@ -24,8 +24,8 @@ public class KthFromLast {
         }
         return p1;
     }
-    public ListNode findKth(ListNode head, int k) {
-        ListNode curr = head;
+    public <T extends Comparable<T>> ListNode<T> findKth(ListNode<T> head, int k) {
+        ListNode<T> curr = head;
         int len = LinkedList.length(head), i =0;
 
         while(curr != null && len - i > k) {
@@ -37,8 +37,8 @@ public class KthFromLast {
     }
 
     public static void main(String[] args) {
-        System.out.println(new KthFromLast().findKth(LinkedList.create(new int[]{1,2,3,4,5}), 2).val);
-        System.out.println(new KthFromLast().findKth(LinkedList.create(new int[]{1,2,3,4}), 3).val);
-        System.out.println(new KthFromLast().findKthApproach2(LinkedList.create(new int[]{1,2,3,4,5,6}), 4).val);
+        System.out.println(new KthFromLast().findKth(LinkedList.create(new Integer[]{1,2,3,4,5}), 2).val);
+        System.out.println(new KthFromLast().findKth(LinkedList.create(new Integer[]{1,2,3,4}), 3).val);
+        System.out.println(new KthFromLast().findKthApproach2(LinkedList.create(new Integer[]{1,2,3,4,5,6}), 4).val);
     }
 }

@@ -22,7 +22,7 @@ public class MergeKSortedLists {
         ListNode head = new ListNode(-1);
         ListNode curr = head;
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<>(Comparator.comparingInt(p -> p.val));
+        PriorityQueue<ListNode<Integer>> queue = new PriorityQueue<>(Comparator.comparingInt(p -> p.val));
 
         while(true) {
             for(int i=0; i<lists.length; i++)
