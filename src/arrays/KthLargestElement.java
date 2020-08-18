@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
@@ -7,7 +8,7 @@ import java.util.Random;
 public class KthLargestElement {
     
     public int findKthLargest(int[] nums, int k) {
-        Queue<Integer> queue = new PriorityQueue<>();
+        Queue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
 
         for(int i=0; i<k; i++)
             queue.add(nums[i]);

@@ -11,7 +11,7 @@ public class ModularExponentiation {
         if(y==1)
             return x % PRIME;
         int temp = binary_exp(x, y/2);
-        temp = (temp * temp) % PRIME;
+        temp = ((temp%PRIME)*(temp%PRIME))%PRIME;
 
         if(y%2==0)
             return temp;
