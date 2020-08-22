@@ -26,8 +26,8 @@ public class ParkingLot {
         this.parkingSpotFloorMap = new HashMap<>();
     }
 
-    public ParkingFloor addFloor(ParkingFloor parkingFloor) {
-        return floorMap.putIfAbsent(parkingFloor.getId(), parkingFloor);
+    public void addFloor(ParkingFloor parkingFloor) {
+        floorMap.putIfAbsent(parkingFloor.getId(), parkingFloor);
     }
 
     public void addSpot(String floorId, ParkingSpot parkingSpot) {

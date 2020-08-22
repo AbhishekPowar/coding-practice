@@ -16,10 +16,10 @@ public class ParkingFloor {
     private String _id;
     private int floorNumber;
 
-    private Deque<ParkingSpot> smallSpots;
-    private Deque<ParkingSpot> mediumSpots;
-    private Deque<ParkingSpot> largeSpots;
-    private Deque<ParkingSpot> xLargeSpots;
+    private final Deque<ParkingSpot> smallSpots;
+    private final Deque<ParkingSpot> mediumSpots;
+    private final Deque<ParkingSpot> largeSpots;
+    private final Deque<ParkingSpot> xLargeSpots;
 
     private ParkingDisplayBoard parkingDisplayBoard;
 
@@ -67,7 +67,7 @@ public class ParkingFloor {
 
         throw new ParkingFullException();
     }
-    public ParkingSpot addParkingSpot(ParkingSpot parkingSpot) {
+    public void addParkingSpot(ParkingSpot parkingSpot) {
 
         Deque<ParkingSpot> updated = null;
         switch (parkingSpot.getType()) {
@@ -89,6 +89,5 @@ public class ParkingFloor {
 
         if(updated != null)
             this.parkingDisplayBoard.update(parkingSpot.getType(), updated.size());
-        return parkingSpot;
     }
 }
