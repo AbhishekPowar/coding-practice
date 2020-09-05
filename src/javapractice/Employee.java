@@ -1,4 +1,4 @@
-package java8;
+package javapractice;
 
 public class Employee {
 

@@ -1,4 +1,4 @@
-package java8.streams;
+package javapractice.streams;
 
 import java.util.Objects;
 

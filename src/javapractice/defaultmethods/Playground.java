@@ -1,4 +1,4 @@
-package java8.defaultmethods;
+package javapractice.defaultmethods;
 
 interface A {
     default void log() {

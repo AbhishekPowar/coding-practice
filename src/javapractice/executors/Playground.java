@@ -1,4 +1,4 @@
-package java8.executors;
+package javapractice.executors;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;

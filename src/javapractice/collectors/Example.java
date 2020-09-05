@@ -1,11 +1,10 @@
-package java8.collectors;
+package javapractice.collectors;
 
-import java8.Employee;
-import java8.collectors.Fruit.Color;
+import javapractice.Employee;
+import javapractice.collectors.Fruit.Color;
 
 import java.util.*;
 import java.util.function.BiFunction;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 class Fruit {

@@ -1,4 +1,4 @@
-package java8;
+package javapractice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
