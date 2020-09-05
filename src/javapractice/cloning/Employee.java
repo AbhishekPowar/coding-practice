@@ -14,19 +14,10 @@ public class Employee implements Cloneable, Serializable {
     private String firstName;
     private String lastName;
     private Department department;
-    private int age;
 
     public Employee() {
         System.out.println("Constructor invoked");
         this._id = UUID.randomUUID().toString();
-    }
-
-    public String get_id() {
-        return _id;
-    }
-
-    public String getFirstName() {
-        return firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -39,10 +30,6 @@ public class Employee implements Cloneable, Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Department getDepartment() {
-        return department;
     }
 
     public void setDepartment(Department department) {
