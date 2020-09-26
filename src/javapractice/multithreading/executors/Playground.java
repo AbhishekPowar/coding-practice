@@ -1,4 +1,4 @@
-package javapractice.executors;
+package javapractice.multithreading.executors;
 
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;

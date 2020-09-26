@@ -2,7 +2,7 @@ package design.patterns.structural.decorator.beverages;
 
 public abstract class Beverage {
 
-    public enum Size { TALL, GRAND, VENTI }
+    public enum Size { TALL, GRAND, MEDIUM }
 
     private Size size = Size.TALL;
     protected String description = "Unknown Beverage";
