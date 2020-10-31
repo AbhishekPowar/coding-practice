@@ -1,59 +1,108 @@
 package commons;
 
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LRUCache {
-	private static Deque<Integer> dq;
-	private static Set<Integer> keys;
-	private static int cacheSize;
-	
-	LRUCache(int n) {
-		dq = new LinkedList<>();
-		keys = new HashSet<>();
-		
-		cacheSize = n;
+
+	class DLinkedNode {
+		int key;
+		int value;
+		DLinkedNode prev;
+		DLinkedNode next;
 	}
-	
-	public void refer(int pageNumber) {
-		
-		if(!keys.contains(pageNumber) ) {
-			if(dq.size() == cacheSize) {
-				int last = dq.removeLast();
-				keys.remove(last);
+
+	private void addNode(DLinkedNode node) {
+		/**
+		 * Always add the new node right after head.
+		 */
+		node.prev = head;
+		node.next = head.next;
+
+		head.next.prev = node;
+		head.next = node;
+	}
+
+	private void removeNode(DLinkedNode node){
+		/**
+		 * Remove an existing node from the linked list.
+		 */
+		DLinkedNode prev = node.prev;
+		DLinkedNode next = node.next;
+
+		prev.next = next;
+		next.prev = prev;
+	}
+
+	private void moveToHead(DLinkedNode node){
+		/**
+		 * Move certain node in between to the head.
+		 */
+		removeNode(node);
+		addNode(node);
+	}
+
+	private DLinkedNode popTail() {
+		/**
+		 * Pop the current tail.
+		 */
+		DLinkedNode res = tail.prev;
+		removeNode(res);
+		return res;
+	}
+
+	private Map<Integer, DLinkedNode> cache = new HashMap<>();
+	private int size;
+	private int capacity;
+	private DLinkedNode head, tail;
+
+	public LRUCache(int capacity) {
+		this.size = 0;
+		this.capacity = capacity;
+
+		head = new DLinkedNode();
+		// head.prev = null;
+
+		tail = new DLinkedNode();
+		// tail.next = null;
+
+		head.next = tail;
+		tail.prev = head;
+	}
+
+	public int get(int key) {
+		DLinkedNode node = cache.get(key);
+		if (node == null) return -1;
+
+		// move the accessed node to the head;
+		moveToHead(node);
+
+		return node.value;
+	}
+
+	public void put(int key, int value) {
+		DLinkedNode node = cache.get(key);
+
+		if(node == null) {
+			DLinkedNode newNode = new DLinkedNode();
+			newNode.key = key;
+			newNode.value = value;
+
+			cache.put(key, newNode);
+			addNode(newNode);
+
+			++size;
+
+			if(size > capacity) {
+				// pop the tail
+				DLinkedNode tail = popTail();
+				cache.remove(tail.key);
+				--size;
 			}
 		} else {
-			int pos = 0;
-			
-			for(Integer p: dq) {
-				if(p == pageNumber)
-					break;
-				pos++;
-			}
-			
-			dq.remove(pos);
+			// update the value.
+			node.value = value;
+			moveToHead(node);
 		}
-		
-		dq.push(pageNumber);
-		keys.add(pageNumber);
-	}
-	
-	public void display() {
-		for (Integer integer : dq)
-			System.out.print(integer + " ");
-    } 
-	
-	public static void main(String[] args) {
-		LRUCache ca = new LRUCache(4); 
-        ca.refer(1); 
-        ca.refer(2); 
-        ca.refer(3); 
-        ca.refer(1); 
-        ca.refer(4); 
-        ca.refer(5); 
-        ca.display();
 	}
 }
